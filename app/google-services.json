@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "633208317487",
+    "project_id": "gestionrecettes-4f9b2",
+    "storage_bucket": "gestionrecettes-4f9b2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:633208317487:android:8021a8dfdd60766bac08da",
+        "android_client_info": {
+          "package_name": "com.example.gestionrecettes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "633208317487-p6sgb4k5vuqt1utbep0fomlnl8dlrbg7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4Qv0-y5-q97icqq_0U-zCgcTG4rXWSOM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "633208317487-p6sgb4k5vuqt1utbep0fomlnl8dlrbg7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
