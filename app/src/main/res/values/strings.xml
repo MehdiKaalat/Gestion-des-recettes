@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">GestionRecettes</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="login">Login</string>
+    <string name="your_email">Your Email</string>
+    <string name="login1">Login</string>
+    <string name="let_s_join_our_community_to_cook_better_food">Let’s join our community to cook better food!</string>
 </resources>

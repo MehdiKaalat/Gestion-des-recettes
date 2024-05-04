@@ -1,17 +1,10 @@
 package com.example.gestionrecettes;
 
-import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 
-import com.example.gestionrecettes.data.datasource.local.UserDao;
-import com.example.gestionrecettes.domain.entities.User;
 import com.example.gestionrecettes.framework.database.AppDatabase;
-
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     AppDatabase appDatabase;
@@ -19,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_accueil);
 
         appDatabase = AppDatabase.getInstance(getApplicationContext());
 
@@ -42,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
 //                    ", Username: " + user1.getUsername() +
 //                    ", Email: " + user.getEmail());
 //        }
-
-
     }
 
 

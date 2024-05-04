@@ -8,7 +8,7 @@ import lombok.Data;
 public class User {
     @PrimaryKey(autoGenerate = true)
     public int userId;
-    public String username;
+    public String name;
     public String password;
     public String email;
 
@@ -20,12 +20,12 @@ public class User {
         this.userId = userId;
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPassword() {
