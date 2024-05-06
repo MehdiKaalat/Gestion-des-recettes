@@ -1,4 +1,4 @@
-package com.example.gestionrecettes.data.model;
+package com.example.gestionrecettes.data.databaseClasses;
 
 /**
  * Data class that captures user information for logged in users retrieved from LoginRepository

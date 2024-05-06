@@ -12,13 +12,11 @@ public class User {
     public String password;
     public String email;
 
+
     public int getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
 
     public String getName() {
         return name;

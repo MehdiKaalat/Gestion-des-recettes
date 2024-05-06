@@ -13,4 +13,9 @@
     <string name="your_email">Your Email</string>
     <string name="login1">Login</string>
     <string name="let_s_join_our_community_to_cook_better_food">Let’s join our community to cook better food!</string>
+    <string name="select_image">Select Image</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="cooking_time">Cooking Time (minutes)</string>
+    <string name="save">Save</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.gestionrecettes.data;
+package com.example.gestionrecettes.data.databaseClasses;
 
 /**
  * A generic class that holds a result success w/ data or an error exception.

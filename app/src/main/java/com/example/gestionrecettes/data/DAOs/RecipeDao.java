@@ -1,4 +1,4 @@
-package com.example.gestionrecettes.data.datasource.local;
+package com.example.gestionrecettes.data.DAOs;
 
 import androidx.room.Dao;
 import androidx.room.Delete;

@@ -1,6 +1,6 @@
-package com.example.gestionrecettes.domain.usecases;
+package com.example.gestionrecettes.domain.usecases.RecipeUseCases;
 
-import com.example.gestionrecettes.data.repositories.RecipeRepositoryImpl;
+import com.example.gestionrecettes.data.repositories.RecipeRepo.RecipeRepositoryImpl;
 
 public class DeleteRecipe {
     private final RecipeRepositoryImpl recipeRepository;

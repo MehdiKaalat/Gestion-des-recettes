@@ -10,11 +10,7 @@ import lombok.Data;
                 @ForeignKey(entity = User.class,
                         parentColumns = "userId",
                         childColumns = "userId",
-                        onDelete = ForeignKey.CASCADE),
-                @ForeignKey(entity = Category.class,
-                        parentColumns = "categoryId",
-                        childColumns = "categoryId",
-                        onDelete = ForeignKey.SET_NULL)
+                        onDelete = ForeignKey.CASCADE)
         })
 public class Recipe {
     @PrimaryKey(autoGenerate = true)
@@ -22,20 +18,19 @@ public class Recipe {
     public int userId; // Foreign key to 'users' table
     public String title;
     public String description;
-    public String imageUrl;
+    public String category;
+    public byte[] image; // Byte array for storing image data
     public int cookingTime; // In minutes
-    public Integer categoryId; // Foreign key to 'categories' table, allows null if category is deleted
 
 
 
-    public Recipe(int recipeId, int userId, String title, String description, String imageUrl, int cookingTime, Integer categoryId) {
-        this.recipeId = recipeId;
+    public Recipe(int userId, String title, String description, byte[] image, int cookingTime, String category) {
         this.userId = userId;
         this.title = title;
         this.description = description;
-        this.imageUrl = imageUrl;
+        this.image = image;
         this.cookingTime = cookingTime;
-        this.categoryId = categoryId;
+        this.category = category;
     }
 
     public int getRecipeId() {
@@ -70,12 +65,12 @@ public class Recipe {
         this.description = description;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public byte[] getImage() {
+        return image;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 
     public int getCookingTime() {
@@ -86,11 +81,11 @@ public class Recipe {
         this.cookingTime = cookingTime;
     }
 
-    public Integer getCategoryId() {
-        return categoryId;
+    public String getCategory() {
+        return category;
     }
 
-    public void setCategoryId(Integer categoryId) {
-        this.categoryId = categoryId;
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

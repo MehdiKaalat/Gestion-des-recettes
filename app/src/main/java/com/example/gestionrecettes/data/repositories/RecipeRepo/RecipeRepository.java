@@ -1,4 +1,4 @@
-package com.example.gestionrecettes.data.repositories;
+package com.example.gestionrecettes.data.repositories.RecipeRepo;
 
 import com.example.gestionrecettes.domain.entities.Recipe;
 import java.util.List;

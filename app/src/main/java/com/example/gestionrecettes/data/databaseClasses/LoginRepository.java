@@ -1,6 +1,4 @@
-package com.example.gestionrecettes.data;
-
-import com.example.gestionrecettes.data.model.LoggedInUser;
+package com.example.gestionrecettes.data.databaseClasses;
 
 /**
  * Class that requests authentication and user information from the remote data source and
