@@ -7,10 +7,12 @@ import androidx.room.RoomDatabase;
 
 import com.example.gestionrecettes.data.DAOs.RecipeDao;
 import com.example.gestionrecettes.data.DAOs.UserDao;
+import com.example.gestionrecettes.domain.entities.Ingredient;
 import com.example.gestionrecettes.domain.entities.Recipe;
+import com.example.gestionrecettes.domain.entities.RecipeIngredient;
 import com.example.gestionrecettes.domain.entities.User;
 
-@Database(entities = {Recipe.class, User.class}, version = 2)
+@Database(entities = {Recipe.class, User.class, Ingredient.class, RecipeIngredient.class}, version = 2)
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase database;
     public abstract RecipeDao recipeDao();

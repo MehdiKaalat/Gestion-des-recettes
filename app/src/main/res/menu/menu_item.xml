@@ -14,6 +14,14 @@
                 >
             </item>
             <item
+                android:id="@+id/delete_recipe"
+                android:title="Delete Recipe"
+                app:showAsAction="never"
+                android:icon="@drawable/icons8_delete__1_"
+                android:color="@color/delete"
+                >
+            </item>
+            <item
                 android:id="@+id/share_recipe"
                 android:title="Share Recipe"
                 app:showAsAction="never"

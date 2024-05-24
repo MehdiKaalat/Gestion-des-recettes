@@ -22,25 +22,8 @@ public class RecipeDataSource {
                 .build();
         recipeDao = appDatabase.recipeDao();
     }
-
-
-    public void insertRecipe(Recipe recipe) {
-        recipeDao.insert(recipe);
-    }
-
-    public void updateRecipe(Recipe recipe) {
-        recipeDao.update(recipe);
-    }
-
-    public void deleteRecipe(int recipeId) {
-        recipeDao.deleteById(recipeId);
-    }
-
-    public List<Recipe> getAllRecipes() {
-        return recipeDao.getAll();
-    }
-
-    public Recipe getRecipeById(int recipeId) {
-        return recipeDao.getById(recipeId);
+    // Getter for recipeDao
+    public RecipeDao getRecipeDao() {
+        return recipeDao;
     }
 }

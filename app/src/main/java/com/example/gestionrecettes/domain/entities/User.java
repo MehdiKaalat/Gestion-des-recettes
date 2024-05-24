@@ -2,6 +2,9 @@ package com.example.gestionrecettes.domain.entities;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+
+import com.example.gestionrecettes.presentation.activities.profile_activity;
+
 import lombok.Data;
 
 @Entity(tableName = "users")
@@ -11,6 +14,7 @@ public class User {
     public String name;
     public String password;
     public String email;
+    public byte[] pdp; // Byte array for storing image data
 
 
     public int getUserId() {
@@ -40,5 +44,28 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public byte[] getPdp() {
+        return pdp;
+    }
+
+    public void setPdp(byte[] pdp) {
+        this.pdp = pdp;
+    }
+
+    public User(int userId, String name, String password, String email, byte[] pdp) {
+        this.userId = userId;
+        this.name = name;
+        this.password = password;
+        this.email = email;
+        this.pdp = pdp;
+    }
+
+    public User() {
     }
 }

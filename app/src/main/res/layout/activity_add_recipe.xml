@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        tools:ignore="ExtraText">
 
         <ImageView
             android:id="@+id/imageViewRecipe"
@@ -34,6 +35,43 @@
             android:layout_height="wrap_content"
             android:hint="@string/title"
             android:inputType="textCapWords"/>
+
+        <!-- Container for ingredient inputs -->
+        <LinearLayout
+            android:id="@+id/ingredientsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Initial ingredient input row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/editTextIngredient"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:hint="Ingredient"
+                    android:inputType="textCapWords"/>
+
+                <EditText
+                    android:id="@+id/editTextQuantity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Qty (g)"
+                    android:inputType="numberDecimal" />
+
+                <Button
+                    android:id="@+id/buttonAddIngredient"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add" />
+            </LinearLayout>
+        </LinearLayout>
 
         <EditText
             android:id="@+id/editTextDescription"

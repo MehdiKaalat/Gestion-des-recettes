@@ -5,6 +5,9 @@
       <entry key="app">
         <State />
       </entry>
+      <entry key="edit_recipe_activity">
+        <State />
+      </entry>
     </value>
   </component>
 </project>

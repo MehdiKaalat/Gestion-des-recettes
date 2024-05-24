@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item  android:id="@+id/profile_option"
+        app:showAsAction="always"
+        android:title=""
+        android:icon="@drawable/kebab_menu">
+        <menu>
+            <item
+                android:id="@+id/edit_profile"
+                android:title="Edit Profile"
+                app:showAsAction="never"
+                android:icon="@drawable/outline_mode_edit_outline_24"
+                >
+            </item>
+            <item
+                android:id="@+id/add_recipe"
+                android:title="Add Recipe"
+                app:showAsAction="never"
+                android:icon="@drawable/outline_add_24"
+                >
+            </item>
+            <item
+                android:id="@+id/logout"
+                android:title="Log out"
+                app:showAsAction="never"
+                android:icon="@drawable/outline_logout_24"
+                >
+            </item>
+        </menu>
+    </item>
+
+</menu>

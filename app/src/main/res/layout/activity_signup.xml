@@ -6,11 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity" >
+    tools:context=".presentation.activities.signup_activity" >
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="47dp" />
+        android:layout_height="29dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,7 +30,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="64dp"
+        android:layout_height="53dp"
         android:orientation="horizontal">
 
         <TextView
@@ -45,6 +45,45 @@
             android:layout_width="186dp"
             android:layout_height="22dp"
             android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|center_vertical"
+            android:layout_marginLeft="30dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="Profile Photo  :" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/imageViewPdp"
+            android:layout_width="40dp"
+            android:layout_height="80dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/ripple_gray"
+            android:clickable="true"
+            android:contentDescription="@string/select_image"
+            android:contextClickable="true"
+            android:focusable="true"
+            android:onClick="onSelectImageClick"
+            android:padding="8dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/outline_add_photo_alternate_24"
+            card_view:srcCompat="@drawable/outline_add_photo_alternate_24" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -115,6 +154,7 @@
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password_signup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Your Password"
@@ -130,6 +170,7 @@
         android:orientation="horizontal">
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/password_signup_confirmation_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
@@ -140,6 +181,7 @@
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password_signup_confirmation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Confrim Your Password"

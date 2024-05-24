@@ -26,4 +26,7 @@
     <color name="Warning_20">#995E00</color>
 
     <color name="Success">#31B057</color>
+
+    <color name="delete">#FA5252</color>
+
 </resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CategoryButtonStyle" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@drawable/selector_button_text</item>
+        <item name="android:background">@drawable/selector_button_background</item>
+        <item name="android:padding">5dp</item>
+    </style>
+
+</resources>

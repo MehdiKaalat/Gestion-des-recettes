@@ -13,7 +13,7 @@
         android:theme="@style/Theme.GestionRecettes"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.activities.add_recipe_activity"
+            android:name=".presentation.activities.login_activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,6 +21,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".presentation.activities.activity_recipe">
+        </activity>
+        <activity android:name=".presentation.activities.profile_activity" />
+        <activity android:name=".presentation.activities.home_activity" />
+        <activity android:name=".presentation.activities.signup_activity" />
+        <activity android:name=".presentation.activities.add_recipe_activity" />
+        <activity android:name=".presentation.activities.edit_profile_activity" />
+        <activity android:name=".presentation.activities.edit_recipe_activity" />
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

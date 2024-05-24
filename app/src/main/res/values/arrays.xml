@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="category_array">
-        <item>Appetizer</item>
-        <item>Main Course</item>
-        <item>Dessert</item>
-        <item>Beverage</item>
+        <item>Appetizers</item>
+        <item>Soups</item>
+        <item>Salads</item>
+        <item>Main Dishes</item>
+        <item>Vegetarian/Vegan</item>
+        <item>Seafood</item>
+        <item>Meat</item>
+        <item>Poultry</item>
+        <item>Pasta</item>
+        <item>Casseroles</item>
+        <item>Breads</item>
+        <item>Desserts</item>
+        <item>Breakfast/Brunch</item>
+        <item>Beverages</item>
+        <item>Snacks</item>
+        <item>Condiments/Sauces</item>
+        <item>Slow Cooker</item>
+        <item>Instant Pot</item>
+        <item>Grilling/BBQ</item>
+        <item>International Cuisines</item>
+        <item>Gluten-Free</item>
+        <item>Keto/Low-Carb</item>
+        <item>Healthy/Lightened-Up</item>
     </string-array>
 </resources>
