@@ -19,7 +19,7 @@ public class Recipe {
     public String title;
     public String description;
     public String category;
-    public byte[] image; // Byte array for storing image data
+    public byte[] image;
     public int cookingTime; // In minutes
 
 

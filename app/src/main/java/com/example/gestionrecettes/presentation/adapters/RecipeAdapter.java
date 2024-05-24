@@ -33,14 +33,14 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
     private List<RecipeWithUserNameDTO> recipes;
     private final Context context;
     private int signedInUserId;
-    private final List<RecipeWithUserNameDTO> recipesFull; // Always holds all data for filterin
-    private String currentCategory = "All"; // Default to showing all categories
+    private final List<RecipeWithUserNameDTO> recipesFull;
+    private String currentCategory = "All";
 
     public RecipeAdapter(Context context, List<RecipeWithUserNameDTO> recipes, int signedInUserId) {
         this.context = context;
         this.recipes = recipes;
         this.signedInUserId = signedInUserId;
-        this.recipesFull = new ArrayList<>(recipes); // Initialize with full data
+        this.recipesFull = new ArrayList<>(recipes);
     }
     @NonNull
     @Override
@@ -69,7 +69,6 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
             intent.putExtra("RECIPE_OWNER_ID", recipe.getUserId());
             intent.putExtra("SIGNED_IN_USER_ID", signedInUserId);
 
-            // Assuming the context is an instance of Activity
             ((Activity) context).startActivityForResult(intent, PROFILE_ACTIVITY_REQUEST_CODE);
         });
 
@@ -81,7 +80,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
     @SuppressLint("NotifyDataSetChanged")
     public void updateRecipes(List<RecipeWithUserNameDTO> newRecipes) {
         this.recipes = newRecipes;
-        notifyDataSetChanged(); // Notify that the dataset has changed
+        notifyDataSetChanged();
     }
 
 
@@ -106,7 +105,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
 
     public void setCurrentCategory(String category) {
         this.currentCategory = category;
-        getFilter().filter(""); // Trigger re-filtering
+        getFilter().filter("");
     }
 
     private Filter recipeFilter = new Filter() {

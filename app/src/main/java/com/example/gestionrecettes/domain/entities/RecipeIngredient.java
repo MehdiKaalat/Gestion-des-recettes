@@ -29,14 +29,6 @@ public class RecipeIngredient {
         this.quantity = quantity;
     }
 
-    // Getters and setters
-    public int getRecipeIngredientId() {
-        return recipeIngredientId;
-    }
-
-    public void setRecipeIngredientId(int recipeIngredientId) {
-        this.recipeIngredientId = recipeIngredientId;
-    }
 
     public int getRecipeId() {
         return recipeId;
@@ -44,21 +36,5 @@ public class RecipeIngredient {
 
     public void setRecipeId(int recipeId) {
         this.recipeId = recipeId;
-    }
-
-    public int getIngredientId() {
-        return ingredientId;
-    }
-
-    public void setIngredientId(int ingredientId) {
-        this.ingredientId = ingredientId;
-    }
-
-    public String getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(String quantity) {
-        this.quantity = quantity;
     }
 }

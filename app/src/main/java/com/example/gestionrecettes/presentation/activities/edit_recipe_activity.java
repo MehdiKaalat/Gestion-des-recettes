@@ -52,7 +52,6 @@ public class edit_recipe_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_recipe);
 
-        // Initialize views
         imageViewRecipe = findViewById(R.id.imageViewRecipe);
         editTextTitle = findViewById(R.id.editTextTitle);
         editTextDescription = findViewById(R.id.editTextDescription);
@@ -65,21 +64,16 @@ public class edit_recipe_activity extends AppCompatActivity {
         ingredientInputs = new ArrayList<>();
         quantityInputs = new ArrayList<>();
 
-        // Save the initial ingredient row
         initialIngredientRow = (LinearLayout) ingredientsContainer.getChildAt(0);
 
-        // Set up ViewModel
         RecipeRepositoryImpl recipeRepository = new RecipeRepositoryImpl(new RecipeDataSource(this));
         EditRecipeViewModelFactory factory = new EditRecipeViewModelFactory(recipeRepository);
         editRecipeViewModel = new ViewModelProvider(this, factory).get(EditRecipeViewModel.class);
 
-        // Get the recipe ID from the intent
         recipeId = getIntent().getIntExtra("RECIPE_ID", -1);
 
-        // Load the recipe details
         loadRecipeDetails();
 
-        // Set up button click listeners
         buttonAddIngredient.setOnClickListener(v -> addIngredientInput());
         buttonSaveRecipe.setOnClickListener(v -> saveRecipe());
         imageViewRecipe.setOnClickListener(this::onSelectImageClick);
@@ -104,7 +98,6 @@ public class edit_recipe_activity extends AppCompatActivity {
 
     private void loadIngredients(int recipeId) {
         editRecipeViewModel.getIngredientsForRecipe(recipeId).observe(this, ingredientWithQuantities -> {
-            // Clear previous inputs except the initial row
             ingredientsContainer.removeAllViews();
             ingredientsContainer.addView(initialIngredientRow);
             ingredientInputs.clear();
@@ -174,7 +167,6 @@ public class edit_recipe_activity extends AppCompatActivity {
         editRecipeViewModel.updateRecipeWithIngredients(recipe, ingredients.toArray(new Ingredient[0]), quantities.toArray(new String[0]));
 
         Toast.makeText(this, "Recipe updated successfully", Toast.LENGTH_SHORT).show();
-        // Set result to OK
         setResult(RESULT_OK);
         finish();
     }
@@ -189,7 +181,6 @@ public class edit_recipe_activity extends AppCompatActivity {
         }
         return 0;
     }
-
     public void onSelectImageClick(View view) {
         Intent intent = new Intent();
         intent.setType("image/*");

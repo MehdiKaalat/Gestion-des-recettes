@@ -45,7 +45,6 @@ public class activity_recipe extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-        // Retrieve data from the Intent
         String title = getIntent().getStringExtra("RECIPE_TITLE");
         byte[] imageBytes = getIntent().getByteArrayExtra("RECIPE_IMAGE");
         String description = getIntent().getStringExtra("RECIPE_DESCRIPTION");
@@ -56,7 +55,6 @@ public class activity_recipe extends AppCompatActivity {
         recipeOwnerId = getIntent().getIntExtra("RECIPE_OWNER_ID", -1); // Get the recipe owner ID
         signedInUserId = getIntent().getIntExtra("SIGNED_IN_USER_ID", -1); // Get the signed-in user ID
 
-        // Set data to views
         ((TextView) findViewById(R.id.title_recipe)).setText(title);
         ((TextView) findViewById(R.id.textView12)).setText("By " + userName);
         ((TextView) findViewById(R.id.category)).setText(category + " | " );
@@ -64,18 +62,15 @@ public class activity_recipe extends AppCompatActivity {
         Bitmap imageBitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
         ((ImageView) findViewById(R.id.img_item)).setImageBitmap(imageBitmap);
 
-        // Enable the Up button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle("");
         }
 
-        // Initialize the ViewModel
         RecipeRepositoryImpl recipeRepository = new RecipeRepositoryImpl(new RecipeDataSource(this));
         RecipeViewModelFactory factory = new RecipeViewModelFactory(recipeRepository);
         recipeViewModel = new ViewModelProvider(this, factory).get(RecipeViewModel.class);
 
-        // Set up TabHost
         TabHost tabHost = findViewById(android.R.id.tabhost);
         tabHost.setup();
 
@@ -89,7 +84,6 @@ public class activity_recipe extends AppCompatActivity {
         spec2.setIndicator("Procedure");
         tabHost.addTab(spec2);
 
-        // Load data into the tabs
         loadIngredients();
         loadProcedure(description);
     }
@@ -125,7 +119,6 @@ public class activity_recipe extends AppCompatActivity {
         MenuItem editItem = menu.findItem(R.id.edit_recipe);
         MenuItem deleteItem = menu.findItem(R.id.delete_recipe);
 
-        // Check if the signed-in user is the owner of the recipe
         if (recipeOwnerId != signedInUserId) {
             editItem.setVisible(false);
             deleteItem.setVisible(false);
@@ -184,7 +177,6 @@ public class activity_recipe extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == EDIT_RECIPE_REQUEST_CODE && resultCode == RESULT_OK) {
-            // Refresh the recipe details
             loadRecipeDetails();
         }
     }
@@ -199,7 +191,6 @@ public class activity_recipe extends AppCompatActivity {
                 Bitmap imageBitmap = BitmapFactory.decodeByteArray(recipe.getImage(), 0, recipe.getImage().length);
                 ((ImageView) findViewById(R.id.img_item)).setImageBitmap(imageBitmap);
 
-                // Load ingredients and procedure again
                 loadIngredients();
                 loadProcedure(recipe.getDescription());
             }

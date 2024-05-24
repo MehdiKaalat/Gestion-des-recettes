@@ -40,19 +40,15 @@ public class login_activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Inflate the layout with view binding
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // Initialize UserDataSource and UserRepository
         UserDataSource userDataSource = new UserDataSource(getApplicationContext());
         UserRepository userRepository = new UserRepositoryImpl(userDataSource);
 
-        // Initialize SignupViewModel
         SignupViewModelFactory signupFactory = new SignupViewModelFactory(userRepository);
         signupViewModel = new ViewModelProvider(this, signupFactory).get(SignupViewModel.class);
 
-        // Initialize AddRecipeViewModel
         RecipeDataSource recipeDataSource = new RecipeDataSource(getApplicationContext());
         RecipeRepository recipeRepository = new RecipeRepositoryImpl(recipeDataSource);
         AddRecipeViewModelFactory addRecipeFactory = new AddRecipeViewModelFactory(recipeRepository, userRepository);
@@ -64,7 +60,6 @@ public class login_activity extends AppCompatActivity {
         binding.buttonLogin.setOnClickListener(v -> login());
 
         binding.goSignupPage.setOnClickListener(v -> navigateToSignUp());
-//        autoCreateAccountAndRecipe();
     }
 
     private void login() {
@@ -104,53 +99,4 @@ public class login_activity extends AppCompatActivity {
         editor.putInt("USER_ID", userId);
         editor.apply();
     }
-
-//    private void autoCreateAccountAndRecipe() {
-//        String name = "El Mehdi Kaalat";
-//        String email = "mehdi@gmail.com";
-//        String password = "mehdi";
-//        selectedImageBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.pdp);
-//
-//        byte[] imageBytes = null;
-//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//        selectedImageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-//        imageBytes = baos.toByteArray();
-//        Log.d(TAG, "imageBytes length: " + imageBytes.length);
-//
-//        signupViewModel.register(imageBytes, name, email, password).observe(this, this::createRecipeForUser);
-//    }
-//    private void createRecipeForUser(int userId) {
-//        String title = "Traditional spare ribs baked";
-//        String description = "This is a sample recipe created automatically.";
-//        String category = "Dessert";
-//        int cookingTime = 30;
-//
-//        Bitmap recipeBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.img1);
-//        byte[] image = null;
-//
-//        if (recipeBitmap != null) {
-//            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//            recipeBitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
-//            image = baos.toByteArray();
-//        }
-//
-//        Recipe recipe = new Recipe(userId, title, description, image, cookingTime, category);
-//
-//        Ingredient[] ingredients = new Ingredient[] {
-//                new Ingredient("Flour"),
-//                new Ingredient("Sugar"),
-//                new Ingredient("Eggs")
-//        };
-//
-//        String[] quantities = new String[] { "200g", "100g", "3" };
-//
-//        Log.d(TAG, "Inserting recipe with userId: " + userId);
-//        new Thread(() -> {
-//            addRecipeViewModel.insertRecipeWithIngredients(recipe, ingredients, quantities);
-//            runOnUiThread(() -> {
-//                Toast.makeText(this, "Recipe created successfully", Toast.LENGTH_SHORT).show();
-//                finish();
-//            });
-//        }).start();
-//    }
 }

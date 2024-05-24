@@ -39,7 +39,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class add_recipe_activity extends AppCompatActivity {
-    private static final int PICK_IMAGE_REQUEST = 1;  // Request code for picking an image
+    private static final int PICK_IMAGE_REQUEST = 1;
     private Spinner spinnerCategory;
     private EditText editTextTitle;
     private EditText editTextDescription;
@@ -61,7 +61,6 @@ public class add_recipe_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_recipe);
 
-        // Initialize all views
         imageViewRecipe = findViewById(R.id.imageViewRecipe);
         editTextTitle = findViewById(R.id.editTextTitle);
         editTextDescription = findViewById(R.id.editTextDescription);
@@ -70,17 +69,14 @@ public class add_recipe_activity extends AppCompatActivity {
         buttonSaveRecipe = findViewById(R.id.buttonSaveRecipe);
         buttonAddIngredient = findViewById(R.id.buttonAddIngredient);
 
-        // Initialize lists for dynamic ingredient and quantity inputs
         ingredientInputs = new ArrayList<>();
         quantityInputs = new ArrayList<>();
 
-        // Initialize the data sources and repositories
         RecipeDataSource recipeDataSource = new RecipeDataSource(getApplicationContext());
         UserDataSource userDataSource = new UserDataSource(getApplicationContext());
         RecipeRepository recipeRepository = new RecipeRepositoryImpl(recipeDataSource);
         UserRepository userRepository = new UserRepositoryImpl(userDataSource);
 
-        // Initialize the ViewModel
         AddRecipeViewModelFactory factory = new AddRecipeViewModelFactory(recipeRepository, userRepository);
         addRecipeViewModel = new ViewModelProvider(this, factory).get(AddRecipeViewModel.class);
 
@@ -136,18 +132,16 @@ public class add_recipe_activity extends AppCompatActivity {
 
         ingredientsContainer.addView(newIngredientRow);
 
-        // Add to the list of ingredient and quantity inputs
         ingredientInputs.add(newIngredientInput);
         quantityInputs.add(newQuantityInput);
     }
 
     @SuppressLint("StaticFieldLeak")
     private void saveRecipe() {
-        int userId = getUserIdFromPreferences(); // Retrieve user ID from SharedPreferences
+        int userId = getUserIdFromPreferences();
         if (userId == -1) {
-            // Handle the case where no user ID is found
             Toast.makeText(this, "No user logged in", Toast.LENGTH_SHORT).show();
-            finish();  // Optionally close the activity
+            finish();
             return;
         }
         String title = editTextTitle.getText().toString();
@@ -160,7 +154,6 @@ public class add_recipe_activity extends AppCompatActivity {
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
         byte[] imageBytes = baos.toByteArray();
 
-        // Collect ingredients and quantities
         LinearLayout ingredientsContainer = findViewById(R.id.ingredientsContainer);
         int ingredientCount = ingredientsContainer.getChildCount();
         List<Ingredient> ingredients = new ArrayList<>();
@@ -180,10 +173,8 @@ public class add_recipe_activity extends AppCompatActivity {
             }
         }
 
-        // Create the recipe
         Recipe recipe = new Recipe(userId, title, description, imageBytes, cookingTime, category);
 
-        // Save the recipe and ingredients
         new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(Void... voids) {

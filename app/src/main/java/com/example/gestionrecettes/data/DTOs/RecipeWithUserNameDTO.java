@@ -9,7 +9,7 @@ public class RecipeWithUserNameDTO {
     public byte[] image;
     public int cookingTime;
     public String category;
-    public String userName; // User's name from the users table
+    public String userName;
 
     public int getRecipeId() {
         return recipeId;

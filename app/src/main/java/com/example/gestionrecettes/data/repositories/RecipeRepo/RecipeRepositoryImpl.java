@@ -24,24 +24,10 @@ public class RecipeRepositoryImpl implements RecipeRepository {
     }
 
     @Override
-    public void insertRecipe(Recipe recipe) {
-        AsyncTask.execute(() -> recipeDao.insert(recipe));
-    }
-
-    @Override
-    public void updateRecipe(Recipe recipe) {
-        recipeDao.update(recipe);
-    }
-
-    @Override
     public void deleteRecipe(int recipeId) {
         executorService.execute(() -> recipeDao.deleteById(recipeId));
     }
 
-    @Override
-    public LiveData<List<Recipe>> getAllRecipes() {
-        return recipeDao.getAll();
-    }
 
     @Override
     public LiveData<Recipe> getRecipeById(int recipeId) {

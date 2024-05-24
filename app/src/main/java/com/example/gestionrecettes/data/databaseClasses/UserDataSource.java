@@ -35,7 +35,7 @@ public class UserDataSource {
             User user = new User();
             user.setEmail(email);
             user.setName(name);
-            user.setPassword(password); // Consider hashing the password
+            user.setPassword(password);
             user.setPdp(imagePdp);
             userDao.insert(user);
         });

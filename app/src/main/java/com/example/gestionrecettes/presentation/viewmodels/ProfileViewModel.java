@@ -45,9 +45,7 @@ public class ProfileViewModel extends ViewModel {
         userLiveData.setValue(user);
     }
     public void updateUser(User user) {
-        // Update user data in the repository
         userRepository.updateUser(user);
-        // Update LiveData
         userLiveData.setValue(user);
     }
     public void refreshUserRecipes() {

@@ -16,9 +16,6 @@ public class SignupViewModel extends ViewModel {
         this.userRepository = userRepository;
     }
 
-//    public void register(byte[] imagePdp, String name, String email, String password) {
-//        userRepository.register(imagePdp, name, email, password);
-//    }
     public LiveData<Integer> register(byte[] imagePdp, String name, String email, String password) {
         MutableLiveData<Integer> userIdLiveData = new MutableLiveData<>();
         new Thread(() -> {

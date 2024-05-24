@@ -14,7 +14,7 @@ public class User {
     public String name;
     public String password;
     public String email;
-    public byte[] pdp; // Byte array for storing image data
+    public byte[] pdp;
 
 
     public int getUserId() {

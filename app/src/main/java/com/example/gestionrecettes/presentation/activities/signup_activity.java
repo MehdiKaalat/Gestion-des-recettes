@@ -52,8 +52,6 @@ public class signup_activity extends AppCompatActivity {
         SignupViewModelFactory factory = new SignupViewModelFactory(userRepository);
         signupViewModel = new ViewModelProvider(this, factory).get(SignupViewModel.class);
 
-//        // Initialize the ViewModel
-//        signupViewModel = new ViewModelProvider(this).get(SignupViewModel.class);
 
         binding.signupButton.setOnClickListener(v -> registerUser());
         imageViewPdp.setOnClickListener(v -> selectImage());
@@ -69,12 +67,9 @@ public class signup_activity extends AppCompatActivity {
         int height = bm.getHeight();
         float scaleWidth = ((float) newWidth) / width;
         float scaleHeight = ((float) newHeight) / height;
-        // CREATE A MATRIX FOR THE MANIPULATION
         Matrix matrix = new Matrix();
-        // RESIZE THE BIT MAP
         matrix.postScale(scaleWidth, scaleHeight);
 
-        // "RECREATE" THE NEW BITMAP
         return Bitmap.createBitmap(bm, 0, 0, width, height, matrix, false);
     }
     @Override
@@ -84,7 +79,6 @@ public class signup_activity extends AppCompatActivity {
             Uri uri = data.getData();
             try {
                 selectedImageBitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-                // Resize and compress the image
                 selectedImageBitmap = getResizedBitmap(selectedImageBitmap, 200, 200); // Resize to 200x200 or another suitable size
                 imageViewPdp.setImageBitmap(selectedImageBitmap);
             } catch (IOException e) {
@@ -107,7 +101,6 @@ public class signup_activity extends AppCompatActivity {
             Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show();
             return;
         }
-        // Convert the selected image to a byte array
         byte[] imageBytes = null;
         if (selectedImageBitmap != null) {
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -115,10 +108,9 @@ public class signup_activity extends AppCompatActivity {
             imageBytes = baos.toByteArray();
             Log.d("SignupActivity", "imageBytes length: " + imageBytes.length);
         }
-        // Now register the user
         signupViewModel.register(imageBytes ,name, email, password);
         Toast.makeText(this, "Registration successful", Toast.LENGTH_SHORT).show();
-        finish();  // Optionally close the activity
+        finish();
     }
 
 }

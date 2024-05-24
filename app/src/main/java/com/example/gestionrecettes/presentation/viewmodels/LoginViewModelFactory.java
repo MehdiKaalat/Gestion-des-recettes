@@ -1,15 +1,10 @@
 package com.example.gestionrecettes.presentation.viewmodels;
 
-import android.app.Application;
 
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.gestionrecettes.data.databaseClasses.LoginRepository;
-import com.example.gestionrecettes.data.databaseClasses.UserDataSource;
-import com.example.gestionrecettes.data.repositories.RecipeRepo.RecipeRepository;
 import com.example.gestionrecettes.data.repositories.UserRepo.UserRepository;
-import com.example.gestionrecettes.data.repositories.UserRepo.UserRepositoryImpl;
 
 public class LoginViewModelFactory implements ViewModelProvider.Factory {
     private final UserRepository userRepository;

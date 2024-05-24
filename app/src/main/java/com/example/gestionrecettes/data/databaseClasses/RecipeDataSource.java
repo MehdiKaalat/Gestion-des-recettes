@@ -22,7 +22,6 @@ public class RecipeDataSource {
                 .build();
         recipeDao = appDatabase.recipeDao();
     }
-    // Getter for recipeDao
     public RecipeDao getRecipeDao() {
         return recipeDao;
     }

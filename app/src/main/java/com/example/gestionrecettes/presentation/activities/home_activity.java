@@ -68,7 +68,7 @@ public class home_activity extends AppCompatActivity {
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
             );
-            params.setMargins(10, 0, 10, 0); // Margins between buttons
+            params.setMargins(10, 0, 10, 0);
             button.setLayoutParams(params);
 
             button.setOnClickListener(v -> {
@@ -84,22 +84,20 @@ public class home_activity extends AppCompatActivity {
         recipesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         int userId = getUserIdFromPreferences(); // Retrieve user ID from SharedPreferences
         if (userId == -1) {
-            // Handle the case where no user ID is found
             Toast.makeText(this, "No user logged in", Toast.LENGTH_SHORT).show();
-            finish();  // Optionally close the activity
+            finish();
             return;
         }
         RecipeDataSource dataSource = new RecipeDataSource(this);
         RecipeRepository repository = new RecipeRepositoryImpl(dataSource);
         RecipeViewModelFactory factory = new RecipeViewModelFactory(repository);
         viewModel = new ViewModelProvider(this, factory).get(RecipeViewModel.class);
-        // Observe the LiveData from the ViewModel
         viewModel.getRecipesWithUserDetails().observe(this, recipesWithUser -> {
             if (adapter == null) {
                 adapter = new RecipeAdapter(this, recipesWithUser,userId);
                 recipesRecyclerView.setAdapter(adapter);
             } else {
-                adapter.updateRecipes(recipesWithUser); // Make sure this method updates both lists
+                adapter.updateRecipes(recipesWithUser);
             }
         });
         profileButton = findViewById(R.id.imageButton);
@@ -144,14 +142,12 @@ public class home_activity extends AppCompatActivity {
         }
     }
     private void updateCategoryFilter(String category) {
-        currentCategory = category; // Update the current category
+        currentCategory = category;
         if (adapter != null) {
             if (searchInput != null) {
-                // Apply the filter with the current text in the search input
                 adapter.setCurrentCategory(category);
                 adapter.getFilter().filter(searchInput.getText().toString());
             } else {
-                // If searchInput is not initialized yet, use an empty string
                 adapter.setCurrentCategory(category);
                 adapter.getFilter().filter("");
             }
@@ -167,7 +163,7 @@ public class home_activity extends AppCompatActivity {
         });
         layout.addView(button);
         if (category.equals("All")) {
-            button.setSelected(true); // "All" is selected by default
+            button.setSelected(true);
         }
     }
 }

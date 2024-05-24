@@ -9,10 +9,7 @@ import com.example.gestionrecettes.data.DTOs.RecipeWithUserNameDTO;
 import java.util.List;
 
 public interface RecipeRepository {
-    void insertRecipe(Recipe recipe);
-    void updateRecipe(Recipe recipe);
     void deleteRecipe(int recipeId);
-    LiveData<List<Recipe>> getAllRecipes();
     LiveData<Recipe> getRecipeById(int recipeId);
 
     LiveData<List<RecipeWithUserNameDTO>> getRecipesWithUserDetails();

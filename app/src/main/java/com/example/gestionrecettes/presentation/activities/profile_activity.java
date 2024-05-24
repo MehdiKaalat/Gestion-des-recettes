@@ -62,7 +62,6 @@ public class profile_activity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         userName = findViewById(R.id.user_name);
         imagePdp = findViewById(R.id.imagePdp);
-        // Enable the Up button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle("");
@@ -70,11 +69,10 @@ public class profile_activity extends AppCompatActivity {
         recipesRecyclerView = findViewById(R.id.recipes_profile);
         recipesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        int userId = getUserIdFromPreferences(); // Retrieve user ID from SharedPreferences
+        int userId = getUserIdFromPreferences();
         if (userId == -1) {
-            // Handle the case where no user ID is found
             Toast.makeText(this, "No user logged in", Toast.LENGTH_SHORT).show();
-            finish();  // Optionally close the activity
+            finish();
             return;
         }
         RecipeDataSource dataSource = new RecipeDataSource(this);
@@ -105,12 +103,10 @@ public class profile_activity extends AppCompatActivity {
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
                     if (result.getResultCode() == RESULT_OK && result.getData() != null) {
-                        // Extract the updated data from the returned Intent
                         Intent data = result.getData();
                         String updatedName = data.getStringExtra("name");
-                        byte[] updatedPdp = data.getByteArrayExtra("image");  // Assuming a byte array for the profile image
+                        byte[] updatedPdp = data.getByteArrayExtra("image");
 
-                        // Update UI elements directly
                         userName.setText(updatedName);
                         if (updatedPdp != null) {
                             Bitmap imageBitmap = BitmapFactory.decodeByteArray(updatedPdp, 0, updatedPdp.length);
@@ -148,8 +144,8 @@ public class profile_activity extends AppCompatActivity {
             return true;
         } else if (id == R.id.edit_profile) {
             Intent intent = new Intent(this, edit_profile_activity.class);
-            intent.putExtra("USER_ID", getUserIdFromPreferences()); // Pass any required data
-            editProfileLauncher.launch(intent); // Correctly launch EditProfileActivity
+            intent.putExtra("USER_ID", getUserIdFromPreferences());
+            editProfileLauncher.launch(intent);
             return true;
         } else if (id == R.id.logout) {
             handleLogout();
@@ -174,7 +170,7 @@ public class profile_activity extends AppCompatActivity {
                 adapter = new RecipeAdapter(this, recipes, userId);
                 recipesRecyclerView.setAdapter(adapter);
             } else {
-                adapter.updateRecipes(recipes); // Make sure your adapter has this method
+                adapter.updateRecipes(recipes);
             }
         });
     }
@@ -182,16 +178,13 @@ public class profile_activity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PROFILE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            // Refresh the RecyclerView
             fetchRecipesFromDatabase();
         }
     }
     private void handleLogout() {
-        // Clear the shared preferences or any other storage where you hold login status
         SharedPreferences.Editor editor = getSharedPreferences("AppPrefs", MODE_PRIVATE).edit();
         editor.remove("USER_ID");
         editor.apply();
-        // Intent to navigate back to the Login screen or any other appropriate screen
         Intent intent = new Intent(this, login_activity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);

@@ -46,24 +46,20 @@ public class edit_profile_activity extends AppCompatActivity {
 
         imageViewPdp = findViewById(R.id.imageViewPdp);
 
-        // Initialize the data sources and repositories
         UserDataSource userDataSource = new UserDataSource(getApplicationContext());
         UserRepository userRepository = new UserRepositoryImpl(userDataSource);
         RecipeDataSource recipeDataSource = new RecipeDataSource(getApplicationContext());
         RecipeRepository recipeRepository = new RecipeRepositoryImpl(recipeDataSource);
 
-        // Get user ID from intent or SharedPreferences
         int userId = getIntent().getIntExtra("USER_ID", -1);
         if (userId == -1) {
             Toast.makeText(this, "Invalid user ID", Toast.LENGTH_SHORT).show();
             finish();
             return;
         }
-        // Initialize the ViewModel with both repositories
         ProfileViewModelFactory factory = new ProfileViewModelFactory(recipeRepository, userRepository, userId);
         profileViewModel = new ViewModelProvider(this, factory).get(ProfileViewModel.class);
 
-        // Load user data
         profileViewModel.getUserData().observe(this, user -> {
             if (user != null) {
                 binding.nameEdit.setText(user.getName());
@@ -95,12 +91,9 @@ public class edit_profile_activity extends AppCompatActivity {
         int height = bm.getHeight();
         float scaleWidth = ((float) newWidth) / width;
         float scaleHeight = ((float) newHeight) / height;
-        // CREATE A MATRIX FOR THE MANIPULATION
         Matrix matrix = new Matrix();
-        // RESIZE THE BIT MAP
         matrix.postScale(scaleWidth, scaleHeight);
 
-        // "RECREATE" THE NEW BITMAP
         return Bitmap.createBitmap(bm, 0, 0, width, height, matrix, false);
     }
     @Override

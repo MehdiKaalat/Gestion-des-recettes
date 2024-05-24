@@ -14,14 +14,6 @@ public class Ingredient {
         this.name = name;
     }
 
-    // Getters and setters
-    public int getIngredientId() {
-        return ingredientId;
-    }
-
-    public void setIngredientId(int ingredientId) {
-        this.ingredientId = ingredientId;
-    }
 
     public String getName() {
         return name;
