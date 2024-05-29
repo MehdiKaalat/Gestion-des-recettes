@@ -107,7 +107,7 @@ public class login_activity extends AppCompatActivity {
     }
     private void createUser(){
         selectedImageBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.mehdi);
-        String name = "mehdi";
+        String name = "El Mehdi Kaalat";
         String email = "mehdi@gmail.com";
         String password = "mehdi";
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
